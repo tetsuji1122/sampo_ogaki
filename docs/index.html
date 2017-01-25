@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>はなさんぽ</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-toggle.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-toggle.min.js"></script>
+    <script src="js/jquery.csv.js"></script>
+    <!-- メインのjavascript -->
+    <script src="js/index.js"></script>
+  	<style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      body { padding-bottom: 70px; }
+      #map { height: 500px; }
+      #msg { position:absolute; display:none; bottom:30px;}
+      #loading {
+        width:65px; height:65px;
+        left:50%; top:50%;
+        margin:-68px 0 0 -68px;
+        padding:20px;
+        background-color: #ffffff ;
+        opacity: 0.5;
+        border-radius:15px;
+        position:fixed;
+      }
+
+      .center{text-align:center; padding:20px 40px;}
+    </style>
+  </head>
+  <body>
+    <!-- タブのインデックス部分 -->
+    <ul class="nav nav-tabs">
+      <li id="t1" class="active"><a href="#tab1" data-toggle="tab">Home</a></li>
+      <li id="t2" ><a href="#tab2" data-toggle="tab" class="glyphicon glyphicon-map-marker" aria-hidden="true">Map</a></li>
+      <li id="t3" ><a href="#tab3" data-toggle="tab" class="glyphicon glyphicon-info-sign" aria-hidden="true">Info</a></li>
+    </ul>
+    <!-- タブのコンテンツ部分 -->
+    <div class="tab-content">
+      <!-- 1ページ目  -->
+      <div class="tab-pane active center" id="tab1">
+          <h4>三島市</h4>
+          <br/>
+          <img src="images/title.png">
+          <br/>
+          <br/>
+          <select id="sanpoTime" name="sanpoTime" class="form-control form-control-lg" onchange="changeBtnOK(this)">
+            <option value="0">さんぽする時間を選んでください…</option>
+            <option value="30">30分</option>
+            <option value="60">60分</option>
+            <option value="90">90分</option>
+            <option value="120">120分</option>
+          </select>
+      　　<button id="exebtn" class="btn btn-success btn-block btn-lg" disabled="disabled" onclick="gotoMapTab(this)">さんぽする</button>
+      </div>
+      <!-- 2ページ目  -->
+      <div class="tab-pane" id="tab2">
+        <!-- 地図部分 -->
+        <div id="map"></div>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjcW-NVqpyFMZMKnkyUBKSw5nWkyevCMA&callback=initMap">
+        </script>
+        <!-- メッセージ部分 -->
+        <div id="msg" class="alert alert-warning" role="alert"><span></span></div>
+        <!-- ナビ部分 -->
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+          <div class="container" style="margin:10px; vertical-align:middle;">
+            <button type="button" class="btn btn-primary glyphicon glyphicon-refresh" onclick="reroute()">リルート</button>
+            <input type="checkbox" data-toggle="toggle" data-on="ON" data-off="OFF" data-size="normal" onchange="toilet(this)">トイレ
+            <span class="pull-right">
+              <span id="distance" style="font-size:18pt">0</span>km (<span id="time">0</span>分)
+            </span>
+          </div>
+        </nav>
+        <!--　ローディング -->
+        <div id="loading"><img src="images/gif-load.gif"></div>
+      </div>
+      <!-- 3ページ目  -->
+      <div class="tab-pane center" id="tab3">
+        <p>データ提供：<a target="info" href="https://www.city.mishima.shizuoka.jp/ipn017227.html">三島市</a></p>
+        三島市のオープンデータを利用しています
+        <ul class="list-group">
+          <li class="list-group-item">三島市公園情報</li>
+          <li class="list-group-item">三島地域花壇マップ情報</li>
+          <li class="list-group-item">三島市内公衆トイレ設置場所</li>
+          <li class="list-group-item">三島市内の桜の名所</li>
+        </ul>
+        <img src="images/ccby.png">
+      </div>
+    </div>
+  </body>
+</html>
