@@ -1,6 +1,6 @@
 //設定値
-var DEFAULT_CENTER = {lat: 35.126679 , lng: 138.910641};
-//var DEFAULT_CENTER = {lat: 35.366983 , lng: 136.617594};
+var DEFAULT_CENTER = {lat: 35.366983 , lng: 136.617594};
+//var DEFAULT_CENTER = {lat: 35.126679 , lng: 138.910641};
 var DEFAULT_SPEED = 3; // km/h
 var MAX_SAMPO_POINT = 4; //4拠点
 var TOILET_DISTANCE = 300;
@@ -373,7 +373,7 @@ function toIcon(row) {
     anchor: new google.maps.Point(0, 0)
   };
   var pin_gray = {
-    url: 'images/th_flower.png',
+    url: 'images/th_water.png',
     size: new google.maps.Size(48, 48),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(0, 0)
