@@ -352,9 +352,9 @@ function addMaker(idx,row) {
 function toCenterIcon() {
   var pin_mishimaru = {
     url: 'images/th_center.png',
-    size: new google.maps.Size(54, 82),
+    size: new google.maps.Size(82, 82),
     origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(54, 82)
+    anchor: new google.maps.Point(82, 82)
   };
   return pin_mishimaru;
 }
