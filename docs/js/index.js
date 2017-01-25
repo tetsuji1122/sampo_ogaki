@@ -351,7 +351,7 @@ function addMaker(idx,row) {
 //中心マーカー
 function toCenterIcon() {
   var pin_mishimaru = {
-    url: 'images/th_mishimaru.png',
+    url: 'images/th_center.png',
     size: new google.maps.Size(54, 82),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(54, 82)
@@ -382,7 +382,7 @@ function toIcon(row) {
   var pin = pin_blue;
   if (row["type"] == "トイレ") {
   	pin = pin_red;
-  } else if (row["type"] == "花壇") {
+  } else if (row["type"] == "湧き水") {
   	pin = pin_gray;
   }
   return pin;
